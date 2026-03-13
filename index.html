@@ -49,97 +49,27 @@ p {
   margin-bottom: 10px;
 }
 
-/* ===== MOBILE RESPONSIVE FIX ===== */
 
+	/* ===== MOBILE SECTION ===== */
 @media (max-width:768px){
 
-/* Header */
-
 header{
-min-height:200px;
-padding-top:20px;
+padding:20px 10px;
+}
+
+.logo img{
+width:110px;
 }
 
 .header-content h1{
-font-size:28px;
+font-size:26px;
 }
 
 .header-content p{
 font-size:14px;
 }
 
-/* Logo */
-.logo{
-left:15px;
-top:15px;
 }
-
-.logo img{
-width:95px;
-}
-
-/* Navigation */
-nav{
-padding:10px 0;
-}
-
-nav a{
-display:inline-block;
-margin:6px 8px;
-font-size:14px;
-}
-
-/* Sections spacing */
-section{
-padding:40px 15px;
-}
-
-/* About section */
-.about-flex{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-gap:20px;
-}
-
-.about-photo img{
-width:200px;
-height:auto;
-border-radius:10px;
-}
-
-/* Services */
-.services-grid{
-grid-template-columns:1fr;
-gap:25px;
-}
-
-/* Clients */
-.clients-grid{
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-
-.client-card img{
-width:70px;
-}
-
-/* Contact section */
-.contact-flex{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.contact-map iframe{
-width:100%;
-height:250px;
-border:0;
-}
-
-}
-
 
 
 
@@ -205,42 +135,34 @@ section {
 }
 
 /* ===== HEADER ===== */
+
 header{
-    height:250px;
-    background:linear-gradient(150deg,#0B3C5D,#1D65A6);
-    color:white;
-    position:relative;
-}
-.logo{
-    position:absolute;
-    top:20px;
-    left:60px;
-}
-	.logo img{
-    width:180px;
-    height:auto;
+background:linear-gradient(150deg,#0B3C5D,#1D65A6);
+color:white;
+padding:30px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
-@media (max-width:768px){
+.logo{
+margin-bottom:10px;
+}
+
 .logo img{
-    width:100px;
+width:150px;
+height:auto;
 }
-}
-.header-content{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+
 .header-content h1{
-    font-family:'Montserrat', sans-serif;
-    font-size:42px;
-    letter-spacing:2px;
+font-family:'Montserrat', sans-serif;
+font-size:40px;
+letter-spacing:2px;
 }
+
 .header-content p{
-    margin-top:8px;
+margin-top:8px;
 }
 
 
@@ -932,6 +854,7 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
 
 
 
