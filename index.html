@@ -52,12 +52,13 @@ p {
 /* Mobile view */
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(2,1fr); /* 1 card per row on mobile */
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
   }
 }
-
-body{
-min-width:1200px;
+@media (max-width:768px){
+.container{
+padding:0 15px;
+}
 }
 
 .service-card {
@@ -871,3 +872,4 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
