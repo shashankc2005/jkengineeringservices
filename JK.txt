@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JK Engineering</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== UNIVERSAL PAGE ALIGNMENT ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #0b3c5d;
+  font-family: 'Poppins', sans-serif;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+}
+
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  padding: 80px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2 cards per row */
+  gap: 40px;
+}
+
+.service-card {
+  margin-bottom: 10px;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+}
+
+
+.service-card {
+  background: #ffffff;
+  border-radius:14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.service-card img {
+  width: 100%;
+  height:200px;
+  object-fit: cover;
+}
+
+.service-content {
+  padding: 20px;
+}
+
+.service-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0b3c5d;
+  margin-bottom: 20px;
+}
+
+/* Hidden text */
+.service-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+/* Show text on hover */
+.service-card:hover .service-desc {
+  max-height: 200px;
+}
+
+
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+/* ===== BODY ===== */
+body{
+    font-family:'Roboto', sans-serif;
+    background:#f4f7fb;
+    color:#333;
+}
+
+
+
+section {
+  padding: 80px 0;
+}
+
+/* ===== LOADER ===== */
+#loader{
+    position:fixed;
+    inset:0;
+    background:#0b3c5d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+.spinner{
+    width:50px;
+    height:50px;
+    border:4px solid #fff;
+    border-top:4px solid transparent;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* ===== HEADER ===== */
+header{
+    height:250px;
+    background:linear-gradient(150deg,#0B3C5D,#1D65A6);
+    color:white;
+    position:relative;
+}
+.logo{
+    position:absolute;
+    top:20px;
+    left:30px;
+}
+.logo img{
+    width:70px;
+}
+.header-content{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.header-content h1{
+    font-family:'Montserrat', sans-serif;
+    font-size:42px;
+    letter-spacing:2px;
+}
+.header-content p{
+    margin-top:8px;
+}
+
+
+/* =====HOME ===== */
+#home p{
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;          /* change size here */
+    line-height: 1.8;
+    color: #444;
+}
+
+#home h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;          /* About Us heading size */
+    letter-spacing: 1px;
+}
+
+
+/* ===== ABOUT ===== */
+#about p{
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;          /* change size here */
+    line-height: 1.8;
+    color: #444;
+}
+
+#about h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;          /* About Us heading size */
+    letter-spacing: 1px;
+}
+
+
+/* ===== SERVICES ===== */
+#services p{
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;          /* change size here */
+    line-height: 1.8;
+    color: #444;
+}
+
+#services h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;          /* About Us heading size */
+    letter-spacing: 1px;
+}
+
+
+/* ===== PROJECTS ===== */
+#projects p{
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;          /* change size here */
+    line-height: 1.8;
+    color: #444;
+}
+
+#projects h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;          /* About Us heading size */
+    letter-spacing: 1px;
+}
+
+
+/* ===== CLIENTS ===== */
+#clients p{
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;          /* change size here */
+    line-height: 1.8;
+    color: #444;
+}
+
+#clients h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;          /* About Us heading size */
+    letter-spacing: 1px;
+}
+
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Cards next to each other */
+    gap: 30px; /* Space between cards */
+    align-items: center;
+}
+
+.client-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.client-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.client-card img {
+    width: 100px;  /* Adjust logo size */
+    height: auto;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+
+.client-card p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0b3c5d;
+}
+
+
+/* ===== NAV ===== */
+nav{
+    background:#092c44;
+    padding:14px 0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    text-align:center;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 18px;
+    font-weight:500;
+    position:relative;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#3ba4d8;
+    transition:0.3s;
+}
+nav a:hover::after{
+    width:100%;
+}
+
+
+
+/* ===== SECTIONS ===== */
+section{
+    min-height:auto;
+    padding:40px 2px;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s ease;
+}
+section.active{
+    opacity:1;
+    transform:translateY(0);
+}
+h2{
+    font-family:'Montserrat', sans-serif;
+    color:#0b3c5d;
+    margin-bottom:20px;
+}
+p{
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+
+
+/* ===== GRID / CARDS ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:transform 0.4s;
+}
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* ===== FORM ===== */
+form{
+    max-width:500px;
+}
+form input, form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+form button{
+    background:#1d65a6;
+    color:white;
+    padding:12px 30px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+
+/* ===== FOOTER ===== */
+footer{
+    background:#092c44;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <!-- Replace with your logo -->
+        <img src="logo.png" alt="JK Engineering Logo">
+    </div>
+    <div class="header-content">
+        <h1>JK ENGINEERING</h1>
+        <p style=color:#FFFFFF;">Engineering • Manufacturing • Solutions</p>
+<p style=color:#FFFFFF;"><b>Engineering Excellence. Delivered with Commitment</b></p>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+
+
+<!-- HOME / WELCOME -->
+<section id="home" class="active">
+  <div class="container section-text">
+    <h2>Welcome</h2>
+
+    <p>
+      JK Engineering Services is a professionally managed engineering and manpower
+      solutions company committed to delivering high-quality industrial services
+      with precision, safety, and efficiency.
+    </p>
+
+    <p>
+      We specialize in providing comprehensive solutions in the areas of industrial
+      plant setup, erection & commissioning, structural steel works, project
+      consultancy, and skilled manpower deployment. With a strong technical team and
+      experienced workforce, we support industries in executing projects seamlessly
+      from concept to completion.
+    </p>
+
+    <p>
+      Our organization is built on the principles of integrity, reliability, and
+      performance excellence. We focus on understanding client requirements and
+      delivering customized solutions that ensure operational efficiency, cost
+      control, and timely execution.
+    </p>
+
+    <p>
+      At JK Engineering Services, safety and statutory compliance are our top
+      priorities. We strictly adhere to labour laws, industrial safety standards, and
+      regulatory requirements to maintain a transparent and compliant work
+      environment.
+    </p>
+
+    <p>
+      With a commitment to quality workmanship and long-term client relationships,
+      we aim to become a trusted partner for engineering and project support services
+      across various industrial sectors.
+    </p>
+  </div>
+</section>
+
+
+
+
+<!-- ABOUT US -->
+<section id="about">
+  <div class="container">
+    <h2>About Us</h2>
+
+    <div class="about-flex">
+
+      <!-- Chairman Photo -->
+      <div class="about-photo">
+        <img src="plt.png" alt="Chairman - JK Engineering Services">
+      </div>
+
+      <!-- About Text -->
+      <div class="section-text">
+        <p>
+          It gives me immense pleasure to present JK Engineering Services, a company
+          built on dedication, technical expertise, and a strong commitment to
+          quality and integrity.
+        </p>
+
+        <p>
+          Since our inception, our vision has been to provide reliable engineering
+          and manpower solutions that meet the evolving demands of the industrial
+          sector. We understand that every project carries responsibility,
+          timelines, and expectations. Therefore, we focus on delivering services
+          with precision, safety, and professionalism.
+        </p>
+
+        <p>
+          Our strength lies in our skilled workforce, experienced technical team,
+          and our commitment to statutory compliance and safety standards. We believe
+          that sustainable growth is achieved not only through business expansion
+          but also by building long-term relationships with our clients based on
+          trust, transparency, and performance.
+        </p>
+
+        <p>
+          At JK Engineering Services, we continuously strive to improve our systems,
+          upgrade our capabilities, and adopt best industry practices to ensure
+          client satisfaction at every stage of project execution.
+        </p>
+
+        <p>
+          I extend my sincere gratitude to our clients, partners, and employees for
+          their continued support and confidence in us. Together, we look forward to
+          achieving greater milestones and contributing meaningfully to the
+          industrial growth of our nation.
+        </p>
+
+        <p class="signature">
+          Prop. JAY KUMAR SINGH<br>
+          Chairman / Director<br>
+          JK Engineering Services
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <p>
+      At JK Engineering Services, we deliver reliable, efficient, and quality-driven
+      engineering and manpower solutions across industrial, infrastructure, and
+      commercial projects. Our expertise ensures timely execution, safety
+      compliance, and client satisfaction.
+    </p>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card">
+        <img src="Erection-1.png" alt="Erection Commissioning Services">
+        <div class="service-content">
+          <div class="service-title">Erection & Commissioning Services</div>
+          <div class="service-desc">
+            <p>
+              We provide complete mechanical and industrial erection services for plant equipment and structures. 
+              Our skilled team ensures proper installation, alignment, testing, and successful commissioning as per industry standards. 
+              The scope of our services includes structural fabrication and erection, machinery installation and alignment, 
+              piping erection and hydro testing, electrical and mechanical commissioning support, as well as trial runs and performance testing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card">
+        <img src="plant.png" alt="Plant Equipment">
+        <div class="service-content">
+          <div class="service-title">Plant Equipment Supply & Installation</div>
+          <div class="service-desc">
+            <p>
+              We supply and install a wide range of industrial equipment tailored to project requirements. 
+              Our team ensures safe handling, precise installation, and operational readiness. 
+              Our scope includes heavy machinery installation, material handling systems, utility systems and auxiliary equipment, 
+              as well as plant modification and expansion works.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card">
+        <img src="man-1.png" alt="Manpower Recruitment">
+        <div class="service-content">
+          <div class="service-title">Manpower Recruitment & HR Consulting</div>
+          <div class="service-desc">
+            <p>
+              We provide skilled, semi-skilled, and unskilled manpower for industrial and project-based requirements. 
+              Our recruitment process ensures qualified, trained, and compliant workforce deployment. 
+              Our manpower categories include welders, fitters, electricians, machine operators and technicians, 
+              supervisors and engineers, as well as helpers and support staff. 
+              We ensure full compliance under labour laws, EPF & ESI, CLRA, and the Inter-State Migrant Workmen Act (ISMW).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card">
+        <img src="project.png" alt="Project Consultancy">
+        <div class="service-content">
+          <div class="service-title">Project Consultancy & Management</div>
+          <div class="service-desc">
+            <p>
+              We offer project planning, coordination, and execution support to ensure smooth operations from start to completion. 
+              Our services include project planning and scheduling, resource management, cost control and estimation, 
+              site supervision and reporting, as well as safety and compliance management.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card">
+        <img src="operation.png" alt="Operation & Maintenance">
+        <div class="service-content">
+          <div class="service-title">Operation & Maintenance Support</div>
+          <div class="service-desc">
+            <p>
+              We provide ongoing operational and maintenance support to ensure optimal plant performance and reduced downtime. 
+              Our services include preventive and breakdown maintenance, shutdown maintenance support, 
+              equipment inspection and troubleshooting, as well as annual maintenance contracts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card">
+        <div class="service-content">
+          <div class="service-title">Why Choose JK Engineering Services?</div>
+          <div class="service-desc">
+            <ul>
+              <li><b>✔ Experienced & skilled workforce</b></li>
+              <li><b>✔ Strong compliance & documentation support</b></li>
+              <li><b>✔ Commitment to safety & quality</b></li>
+              <li><b>✔ Timely project execution</b></li>
+              <li><b>✔ Cost-effective solutions</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    	 
+        
+	
+
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2>Our Projects</h2>
+    <p>
+      At JK Engineering Services, we have successfully executed diverse engineering and manpower projects across industrial sectors.
+      Our project execution is driven by technical expertise, safety standards, and timely delivery.
+    </p>    
+
+    <div class="services-grid">
+
+      <!-- Project 1 -->
+      <div class="service-card">
+        <img src="setup.png" alt="Industrial Plant Setup">
+        <div class="service-content">
+          <div class="service-title">Industrial Plant Setup</div>
+          <div class="service-desc" style="max-height:none; overflow:visible;">
+            <p>
+              We undertake complete industrial plant setup projects from initial groundwork to final commissioning. Our team ensures smooth coordination between engineering, installation, and operational readiness.
+            </p>
+            <p><b>Scope of Work:</b></p>
+            <ul>
+              <li>Site preparation & layout execution</li>
+              <li>Machinery installation & alignment</li>
+              <li>Utility system setup (piping, electrical, mechanical)</li>
+              <li>Trial runs & commissioning support</li>
+              <li>Project handover with documentation</li>
+            </ul>
+            <p>We ensure that every plant setup meets quality standards, operational efficiency, and safety compliance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="service-card">
+        <img src="steel.png" alt="Structural Steel Works">
+        <div class="service-content">
+          <div class="service-title">Structural Steel Works</div>
+          <div class="service-desc" style="max-height:none; overflow:visible;">
+            <p>
+              We provide complete structural steel fabrication and erection services for industrial projects. 
+              Our team ensures proper alignment, welding quality, and structural stability.
+            </p>
+            <p><b>Scope of Work:</b></p>
+            <ul>
+              <li>Structural fabrication & welding</li>
+              <li>Erection & alignment</li>
+              <li>Quality inspection & compliance</li>
+              <li>Safety supervision on-site</li>
+            </ul>
+            <p>All steel works meet project standards, safety requirements, and client specifications.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="service-card">
+        <img src="custom.png" alt="Custom Engineering Solutions">
+        <div class="service-content">
+          <div class="service-title">Custom Engineering Solutions</div>
+          <div class="service-desc" style="max-height:none; overflow:visible;">
+            <p>
+              We design and implement tailored engineering solutions to meet unique project requirements. 
+              From concept to execution, our team delivers efficient, compliant, and cost-effective solutions.
+            </p>
+            <p><b>Scope of Work:</b></p>
+            <ul>
+              <li>Project-specific design and planning</li>
+              <li>Custom machinery and equipment setup</li>
+              <li>On-site supervision and coordination</li>
+              <li>Quality assurance & performance checks</li>
+            </ul>
+            <p>We ensure each solution is fully aligned with client expectations, project timelines, and safety standards.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="container">
+    <h2>Our Clients</h2>
+    <p>We have proudly served a wide range of clients across industries, delivering top-quality engineering and project services.</p>
+
+    
+    <!-- Client Names / Logos -->
+    <div class="clients-grid">
+      <!-- Example Client Card -->
+      <div class="client-card">
+        <img src="ompl.png" alt="Client 1 Logo">
+        <p>Orissa Metaliks PVT LTD</p>
+      </div>
+
+      <div class="client-card">
+        <img src="prakash.png" alt="Client 2 Logo">
+        <p>Prakash Sponge Iron & Power</p>
+      </div>
+
+      <div class="client-card">
+        <img src="rungta.png" alt="Client 3 Logo">
+        <p>Rungta Sons PVT LTD.</p>
+      </div>
+
+    
+<div class="client-card">
+        <img src="shyam.png" alt="Client 3 Logo">
+        <p>Shyam Sel & Power LTD.</p>
+      </div>
+   
+
+<div class="client-card">
+        <img src="janki.png" alt="Client 3 Logo">
+        <p>Janki Corp LTD.</p>
+      </div>
+    </div>
+
+<!-- Stats -->
+<p></p>
+    <div class="client-stats">
+      <div class="client-count">
+        <h3>150+</h3>
+        <p>Clients Served</p>
+      </div>
+      <div class="client-count">
+        <h3>500+</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="client-count">
+        <h3>20+</h3>
+        <p>Years of Experience</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT US -->
+<section id="contact" style="background:#f5f5f5;">
+  <div class="container">
+
+    <h2>Contact Us</h2>
+
+    <div class="contact-flex">
+
+      <!-- LEFT : CONTACT INFO -->
+      <div class="contact-info">
+        <p><b><i>JK ENGINEERING SERVICES</i></b></p>
+
+        <p>
+          📧 <b>Email:</b>
+          <a href="mailto:jkengineerservices@gmail.com">
+            jkengineerservices@gmail.com
+          </a>
+        </p>
+
+        <p>📞 <b>Phone:</b>
+<a href="tel:+99168 77577">
+ +91 99168 77577
+</a>
+</p>
+
+        <p>
+          📍 <b>Location:
+          Choodasandra Village, Huskur Post
+          Anekal Taluk, Bengaluru
+          Karnataka-560099 India
+        </p>
+
+        <p>🆔 <b>GSTIN:</b> <u>29DLUPS5177J1ZW</u></p>
+      </div>
+
+      <!-- RIGHT : CLICKABLE GOOGLE MAP -->
+      <div class="contact-map"
+        onclick="window.open('https://www.google.com/maps?q=Choodasandra+Village+Huskur+Post+Anekal+Taluk+Bengaluru+560099','_blank')"
+        title="Open in Google Maps">
+
+        <iframe
+          src="https://www.google.com/maps?q=Choodasandra+Village+Huskur+Post+Anekal+Taluk+Bengaluru+560099&output=embed"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+        <div class="map-overlay">Click to open in Google Maps</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+    © 2026 JK Engineering
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+/* Loader */
+window.addEventListener('load',()=>{
+    document.getElementById('loader').style.display='none';
+});
+
+/* Reveal sections on scroll */
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+    sections.forEach(sec=>{
+        if(sec.getBoundingClientRect().top < window.innerHeight - 100){
+            sec.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
